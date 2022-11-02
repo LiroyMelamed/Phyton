@@ -68,7 +68,7 @@ def print_sorted(x) -> dict:
 
 
 def main():
-    x = {"a": 5, "c": 6, "b": [1, 3, 2, 4],"e":{"apple", "banana", "cherry"}, "d": "acbd", "f":{"a": 5, "c": 6,"b":{"apple", "banana", "cherry"}, "d": "acbd"}}
+    x = {"a": 5, "c": 6, "b": [1, 3, 2, 4], "d": "acbd", "f":{"a": 5, "c": 6,"b":{"apple", "banana", "cherry"}, "d": "acbd"}}
     print_sorted(x)
 
 if __name__ == '__main__':

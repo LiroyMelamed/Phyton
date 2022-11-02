@@ -12,13 +12,14 @@ def f(x:int,y:float,z):
 
 def safe_call(*args):
     sig = signature(args[0])
-    parm_count = len(parm)
-    print(parm_count)
-
-    if parm_count != (len(args)-1):
-        raise Exception("Sorry, the parameters entered do not match the parameters of the function entered ")
+    arguments=str(sig)
+    arguments = arguments[1:-1]
+    arguments = arguments.split(",")
+    arguments_count = len(arguments)
+    if arguments_count != (len(args)-1): #Not the same number of variables
+        raise Exception("Unfitable arguments.")
     else:
-        # the number of parameters are equal
+        # Fitable arguments
         counter = 1
         for parameter in parm:
             print(parameter)
@@ -31,10 +32,12 @@ def safe_call(*args):
                 check1 = check[1]
                 check1=check1[1:-1]
 
+                #Checking if every argument is the same as the function.
                 if type1 != check1:
-                    raise Exception("Sorry, the parameters entered do not match the parameters of the function entered ")
+                    raise Exception("Unfitable arguments.")
             counter = counter + 1
 
+    #Returning The function
     only_args = args[1:]
     return f(*only_args)
 

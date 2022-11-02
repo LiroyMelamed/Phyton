@@ -32,11 +32,11 @@ def breadth_first_search(start, end, neighbor_function) -> list:
                     if neigh == end:
                         x = neigh
                         y.append(x)
-                        words.append("Up")
+                        words.append("Right")
                         break
                     x = neigh
                     y.append(x)
-                    words.append("Up")
+                    words.append("Right")
 
             #For example from (0,0) -> (1,1) --  y0>y1 the x is equal in both points
             if end[0] > start[0] and end[1] > start[1]:
@@ -134,7 +134,8 @@ def breadth_first_search(start, end, neighbor_function) -> list:
 
 
 def main():
-    Ex1 = breadth_first_search(start=(5.0, 5.5), end=(5.0, 1.5), neighbor_function=four_neighbor_function)
+    Ex1 = breadth_first_search(start=(0, 0), end=(-1, 0), neighbor_function=four_neighbor_function)
+    print(Ex1)
     for points in Ex1:
         print(points, end=" ")
         if points == Ex1[len(Ex1)-1]:
