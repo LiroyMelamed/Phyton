@@ -1,9 +1,36 @@
+import doctest
+
+
 # Global dictionary to save all the answers
 listOfNumbers = {}
 
 
 # Wrap is our "decorator" function
-def wrap(func):
+def lastcall(func):
+    """
+    "Decorator" function
+
+
+    >>> f(1)
+    The answer is 1
+
+
+    >>> f(1)
+    I already told you that the answer is 1 !
+
+    >>> fun("a")
+    The answer is aa
+
+    >>> fun("a")
+    I already told you that the answer is aa !
+
+    >>> fu(1,3,5)
+    The answer is 3.0
+
+    >>> fu(1,3,5)
+    I already told you that the answer is 3.0 !
+
+    """
     # We get the argument that we put in our original function
     def wrapper(*args):
         x = args
@@ -22,20 +49,23 @@ def wrap(func):
 
 
 # Function with int
-@wrap
+@lastcall
 def f(x: int):
     return x ** 2
 
 
 # Function with str
-@wrap
+@lastcall
 def fun(x: str):
     return x + "a"
 
-@wrap
-def fu(x:int, y:int, z:int):
-    return (x+y+z)/3
 
+@lastcall
+def fu(x: int, y: int, z: int):
+    return (x + y + z) / 3
+
+
+doctest.testmod()
 
 print("- - - - - - - - - - - - - - - - -")
 intToCheck = [1, 2, 3, 4, 5]
@@ -59,10 +89,10 @@ for x in strToCheck:
 print("- - - - - - - - - - - - - - - - -")
 print("Lets check the 3 args function")
 print("- - - - - - - - - - - - - - - - -")
-fu(1,2,6)
-fu(1,2,6)
-fu(2,4,6)
-fu(2,4,6)
+fu(1, 2, 6)
+fu(1, 2, 6)
+fu(2, 4, 6)
+fu(2, 4, 6)
 
 
 
