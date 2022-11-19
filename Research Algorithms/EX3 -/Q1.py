@@ -1,4 +1,6 @@
 import re
+import doctest
+
 
 MailForm = r'([A-Za-z0-9]+[-_.])*[A-Za-z0-9]+@[A-Za-z0-9-]+\.[A-Z|a-z]{2,}'
 
@@ -11,6 +13,16 @@ def CheckEmail(email):
 
 
 def SortFile(example):
+    """
+    Sorting email address function
+
+    >>> SortFile('EmailAddress')
+    The valid mail address are:
+    ['abc-d@mail.com', 'abc.def@mail.com', 'abc@mail.com', 'abc_def@mail.com', 'abc.def@mail.cc', 'abc.def@mail-archive.com', 'abc.def@mail.org', 'abc.def@mail.com']
+    The invalid mail address are:
+    ['abc-@mail.com', '@', 'abc..def@mail.com', '.abc@mail.com', 'abc#def@mail.com', 'abc.def@mail.c', 'abc.def@mail#archive.com', 'abc.def@mail', 'abc.def@mail..com']
+
+    """
     # Making two lists of mail valid and invalid
     ValidMail = []
     InvalidMail = []
@@ -37,4 +49,5 @@ def SortFile(example):
     print(f"The invalid mail address are:\n{InvalidMail}")
 
 
+doctest.testmod()
 SortFile('EmailAddress')
