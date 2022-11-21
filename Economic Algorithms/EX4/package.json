@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "mathplot": "^0.11.4",
+    "matplotlib": "^1.0.0"
+  }
+}

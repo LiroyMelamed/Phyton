@@ -1,4 +1,6 @@
-import matplotlib.pyplot as plt
+import math
+from matplotlib import pyplot as plt
+
 
 class Player:
     def __init__(self):
@@ -69,74 +71,153 @@ if __name__ == '__main__':
 
 
     print("############ Part B ############", "\n")
-    print("Lets take 6 players and 9 objects")
+    print("Lets take 4 players and 4 objects")
     Liroy = Player()
     Raz = Player()
     Lishai = Player()
     Barak = Player()
-    Roi = Player()
-    Daniel = Player()
-    Players4 = [Liroy, Raz, Lishai, Barak, Roi, Daniel]
-    Work4 = [9,9,7,7,6,6,5,5,4,4,4]
-    GreedyAlgo(Players4, Work4)
-    Best4 = 12
-    print("The approximation ratio", Liroy.value()/Best4, "\n")
+    Work1 = [7,7,6,6]
+    Best = 7
+    Players1 = [Liroy, Raz, Lishai, Barak]
+    GreedyAlgo(Players1, Work1)
+    print("The approximation ratio", Liroy.value()/Best, "\n")
 
-    print("Lets take 5 players and 9 objects")
+    print("Lets take 4 players and 5 objects")
     Liroy = Player()
     Raz = Player()
     Lishai = Player()
     Barak = Player()
-    Roi = Player()
-    Players = [Liroy, Raz, Lishai, Barak, Roi]
-    Work = [9,9,7,7,6,6,5,5,4,4,4]
-    Best = 14
-    GreedyAlgo(Players, Work)
-    print("The approximation ratio", Lishai.value()/Best, "\n")
+    Work1 = [7,7,6,6,5]
+    Best1 = 11
+    Players1 = [Liroy, Raz, Lishai, Barak]
+    GreedyAlgo(Players1, Work1)
+    print("The approximation ratio", Lishai.value()/Best1, "\n")
+
+    print("Lets take 4 players and 6 objects")
+    Liroy = Player()
+    Raz = Player()
+    Lishai = Player()
+    Barak = Player()
+    Work1 = [7,7,6,6,5,5]
+    Best1 = 11
+    Players1 = [Liroy, Raz, Lishai, Barak]
+    GreedyAlgo(Players1, Work1)
+    print("The approximation ratio", Barak.value()/Best1, "\n")
+
+    print("Lets take 4 players and 7 objects")
+    Liroy = Player()
+    Raz = Player()
+    Lishai = Player()
+    Barak = Player()
+    Work1 = [7,7,6,6,5,5,4]
+    Best1 = 11
+    Players1 = [Liroy, Raz, Lishai, Barak]
+    GreedyAlgo(Players1, Work1)
+    print("The approximation ratio", Liroy.value()/Best1, "\n")
+
+    print("Lets take 4 players and 8 objects")
+    Liroy = Player()
+    Raz = Player()
+    Lishai = Player()
+    Barak = Player()
+    Work1 = [7,7,6,6,5,5,4,4]
+    Best1 = sum(Work1)/4
+    Players1 = [Liroy, Raz, Lishai, Barak]
+    GreedyAlgo(Players1, Work1)
+    print("The approximation ratio", Liroy.value()/Best1, "\n")
 
     print("Lets take 4 players and 9 objects")
     Liroy = Player()
     Raz = Player()
     Lishai = Player()
     Barak = Player()
-    Work1 = [9,9,7,7,6,6,5,5,4,4]
-    Best1 = 17
+    Work1 = [7,7,6,6,5,5,4,4,4]
+    Best1 = sum(Work1)/4
     Players1 = [Liroy, Raz, Lishai, Barak]
     GreedyAlgo(Players1, Work1)
-    print(Liroy.Work, "=", Liroy.value())
-    print(Raz.Work, "=", Raz.value())
-    print(Lishai.Work, "=", Lishai.value())
-    print(Barak.Work, "=", Barak.value())
-    print("The approximation ratio", Liroy.value()/Best1, "\n")
+    print("The approximation ratio", Liroy.value()/math.ceil(Best1), "\n")
 
-    print("Lets take 3 players and 9 objects")
-    Work2 = [9,9,7,7,6,6,5,5,4,4,4]
+    print("Lets take 4 players and 10 objects")
     Liroy = Player()
     Raz = Player()
     Lishai = Player()
-    Best2 = sum(Work2)/3
-    Players2 = [Liroy, Raz, Lishai]
-    GreedyAlgo(Players2, Work2)
-    print("The approximation ratio", Lishai.value()/Best2, "\n")
+    Barak = Player()
+    Work1 = [7,7,6,6,5,5,4,4,4,3]
+    Best1 = sum(Work1)/4
+    Players1 = [Liroy, Raz, Lishai, Barak]
+    GreedyAlgo(Players1, Work1)
+    print("The approximation ratio", Liroy.value()/math.ceil(Best1), "\n")
 
-    print("Lets take 2 players and 9 objects")
-    Work3 = [9,9,7,7,6,6,5,5,4,4,4]
+    print("Lets take 4 players and 11 objects")
     Liroy = Player()
     Raz = Player()
-    Best3 = sum(Work3)/2
-    Players3 = [Liroy, Raz]
-    GreedyAlgo(Players3, Work3)
-    print("The approximation ratio", Liroy.value()/Best3, "\n")
+    Lishai = Player()
+    Barak = Player()
+    Work1 = [7,7,6,6,5,5,4,4,4,3,3]
+    Best1 = sum(Work1)/4
+    Players1 = [Liroy, Raz, Lishai, Barak]
+    GreedyAlgo(Players1, Work1)
+    print("The approximation ratio", Liroy.value()/math.ceil(Best1), "\n")
 
-    plt.scatter(1,1)
-    plt.scatter(2,1.08)
-    plt.scatter(3,1)
-    plt.scatter(4,1.25)
-    plt.scatter(5,1.1)
-    plt.scatter(6,1)
+    print("Lets take 4 players and 12 objects")
+    Liroy = Player()
+    Raz = Player()
+    Lishai = Player()
+    Barak = Player()
+    Work1 = [7,7,6,6,5,5,4,4,4,3,3,2]
+    Best1 = sum(Work1)/4
+    Players1 = [Liroy, Raz, Lishai, Barak]
+    GreedyAlgo(Players1, Work1)
+    print("The approximation ratio", Liroy.value()/math.ceil(Best1), "\n")
 
-    plt.xlabel('Number of Players')
-    plt.ylabel('Number of Objects')
+    print("Lets take 4 players and 13 objects")
+    Liroy = Player()
+    Raz = Player()
+    Lishai = Player()
+    Barak = Player()
+    Work1 = [7,7,6,6,5,5,4,4,4,3,3,2,2]
+    Best1 = sum(Work1)/4
+    Players1 = [Liroy, Raz, Lishai, Barak]
+    GreedyAlgo(Players1, Work1)
+    print("The approximation ratio", Liroy.value()/math.ceil(Best1), "\n")
+
+    print("Lets take 4 players and 14 objects")
+    Liroy = Player()
+    Raz = Player()
+    Lishai = Player()
+    Barak = Player()
+    Work1 = [7,7,6,6,5,5,4,4,4,3,3,2,2,2]
+    Best1 = sum(Work1)/4
+    Players1 = [Liroy, Raz, Lishai, Barak]
+    GreedyAlgo(Players1, Work1)
+    print("The approximation ratio", Raz.value()/Best1, "\n")
+
+    print("Lets take 4 players and 15 objects")
+    Liroy = Player()
+    Raz = Player()
+    Lishai = Player()
+    Barak = Player()
+    Work1 = [7,7,6,6,5,5,4,4,4,3,3,2,2,2,2]
+    Best1 = sum(Work1)/4
+    Players1 = [Liroy, Raz, Lishai, Barak]
+    GreedyAlgo(Players1, Work1)
+    print("The approximation ratio", Raz.value()/Best1, "\n")
+
+
+    plt.scatter(4,1.0)
+    plt.scatter(5,1.0)
+    plt.scatter(6,1.0)
+    plt.scatter(7,1.0)
+    plt.scatter(8,1.0)
+    plt.scatter(9,1.25)
+    plt.scatter(10,1.15)
+    plt.scatter(11,1.08)
+    plt.scatter(12,1.07)
+    plt.scatter(13,1.067)
+    plt.scatter(14,1.06)
+    plt.scatter(15,1.03)
+
+    plt.xlabel('Number of Objects')
     plt.show()
 
 
