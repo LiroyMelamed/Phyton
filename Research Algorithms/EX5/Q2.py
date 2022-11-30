@@ -3,85 +3,81 @@ import doctest
 from typing import Callable, Any
 
 
+# The function working as a program and can get 2 different algorithms 2 different type of input and 2 different of output
 def FindPath(algorithm: Callable, input: Any, output=str):
     """
-    algorithm = bfs or dfs
-    output = 'length' or path
-    inp = tuple or list:
-        tuple = tuple of two ints represents src and dst and the graph
-        list = list of two strings represents the integers of src and dst and the graph
-    >>> g = nx.Graph()
-    >>> g.add_nodes_from(range(1, 11))
-    >>> g.add_edge(1, 2)
-    >>> g.add_edge(2, 3)
-    >>> g.add_edge(3, 4)
-    >>> g.add_edge(4, 5)
-    >>> g.add_edge(5, 6)
-    >>> g.add_edge(6, 7)
-    >>> g.add_edge(7, 8)
-    >>> g.add_edge(8, 9)
-    >>> g.add_edge(9, 10)
-    >>> g.add_edge(1, 5)
-    >>> g.add_edge(1, 2)
+    My Function get an algorithmm, an input and output
+    The algotithms that my function can get is bfs or dfs
+    The input that my function can get is a tuple or a list
+    The output that my fuction can get is path or length
 
-    >>> FindPath(bfs, [1,4,g], 'path' )
-    [1, 5, 4]
-    >>> g.add_edge(1, 4)
-    >>> FindPath(bfs,[1,4,g], 'path')
-    [1, 4]
-    >>> FindPath(bfs,[1,10,g], 'path')
-    [1, 5, 6, 7, 8, 9, 10]
-    >>> g.remove_edge(1,4)
-    >>> FindPath(dfs, [1,4,g], 'path')
-    [1, 5, 4]
-    >>> g.add_edge(1, 4)
-    >>> FindPath(dfs, [1,4,g], 'path')
-    [1, 4]
-    >>> FindPath(dfs,[1,10,g], 'path')
-    [1, 5, 6, 7, 8, 9, 10]
-    >>> g.remove_edge(1,4)
-    >>> FindPath(bfs, (1,4,g), 'length')
+    'Creating a graph with networx'
+    >>> graph = nx.Graph()
+    >>> graph.add_nodes_from(range(1, 9))
+    >>> graph.add_edge(1, 2)
+    >>> graph.add_edge(2, 3)
+    >>> graph.add_edge(3, 4)
+    >>> graph.add_edge(4, 5)
+    >>> graph.add_edge(5, 6)
+    >>> graph.add_edge(6, 7)
+    >>> graph.add_edge(7, 8)
+    >>> graph.add_edge(1, 3)
+    >>> graph.add_edge(1, 6)
+
+    'Checking variet algorithms, input and outputs'
+    >>> FindPath(bfs,(1,4,graph), 'path')
+    [1, 3, 4]
+    >>> FindPath(bfs, [1,5,graph], 'path' )
+    [1, 6, 5]
+    >>> FindPath(dfs,[1,7,graph], 'path')
+    [1, 6, 7]
+    >>> FindPath(dfs,[1,8,graph], 'path')
+    [1, 6, 7, 8]
+
+    >>> FindPath(bfs,(1,4,graph), 'length')
     3
-    >>> g.add_edge(1, 4)
-    >>> FindPath(bfs,(1,4,g), 'length')
-    2
-    >>> FindPath(bfs,(1,10,g), 'length')
-    7
-    >>> g.remove_edge(1,4)
-    >>> FindPath(dfs,(1,4,g), 'length')
+    >>> FindPath(dfs, (1,5,graph), 'length')
     3
-    >>> g.add_edge(1, 4)
-    >>> FindPath(dfs, (1,4,g), 'length')
-    2
-    >>> FindPath(dfs, (1,10,g), 'length')
-    7
+    >>> FindPath(dfs,(1,7,graph), 'length')
+    3
+    >>> FindPath(bfs,(1,8,graph), 'length')
+    4
     """
+
+    # Checking the input type and split use it as needed
     try:
+        # input type is tuple
         if isinstance(input, tuple):
             src = input[0]
             dst = input[1]
+        # input type is list
         elif isinstance(input, list):
             src = int(input[0])
             dst = int(input[1])
         else:
             raise "Invalid Input"
 
-        G = input[2]
+        # Our graph will be found in the last place after the src and dst
+        Graph = input[2]
 
     except:
         raise "Invalid Input"
 
+    # Checking the output type that was inserted
     try:
+        # output str
         if output == "length":
-            return len(algorithm(src, dst, G.neighbors))
+            return len(algorithm(src, dst, Graph.neighbors))
         elif output == "path":
-            return algorithm(src, dst, G.neighbors)
+            return algorithm(src, dst, Graph.neighbors)
         else:
             raise "Invalid Input"
     except:
         raise "Invalid Input"
 
-def bfs(start:Any,end:Any,neghibor_function):
+
+# Both algorithms were taken from the internet and changed
+def bfs(start: Any, end: Any, neghibor_function):
     # initalize help lists
     visited = []
     queue = []
@@ -101,7 +97,7 @@ def bfs(start:Any,end:Any,neghibor_function):
                 parents[neghibor] = tmp
                 visited.append(neghibor)
                 queue.append(neghibor)
-        #if we found path to "end" during the loop
+        # if we found path to "end" during the loop
         if end in parents.keys():
             break
     # if there is no way between start to end
@@ -117,9 +113,7 @@ def bfs(start:Any,end:Any,neghibor_function):
     return path[::-1]
 
 
-
-
-def dfs(start:Any,end:Any,neghibor_function):
+def dfs(start: Any, end: Any, neghibor_function):
     # initalize help lists
     visited = []
     stack = []
@@ -139,7 +133,7 @@ def dfs(start:Any,end:Any,neghibor_function):
                 parents[neghibor] = tmp
                 visited.append(neghibor)
                 stack.append(neghibor)
-        #if we found path to "end" during the loop
+        # if we found path to "end" during the loop
         if end in parents.keys():
             break
     # if there is no way between start to end
@@ -153,6 +147,7 @@ def dfs(start:Any,end:Any,neghibor_function):
         tmp = parents[tmp]
     path.append(start)
     return path[::-1]
+
 
 if __name__ == '__main__':
     doctest.testmod()

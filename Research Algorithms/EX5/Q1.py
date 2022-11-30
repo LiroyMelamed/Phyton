@@ -42,7 +42,7 @@ class bounded_subsets:
     def AllSubsets(self, OurSets, Max):
         # New Set
         CurrSet = []
-        # For all of subsets that is found in the current set
+        # For all of the subsets that is found in the current set
         for SubSet in OurSets:
             # Sum of the current subset
             CurrSum = sum(SubSet)
