@@ -42,6 +42,7 @@ def FindSmallCircle(G) -> list[int]:
         G[u][v]['weight'] = math.log10(weight)
 
     # Trying to find negative cycle with builtin function *that I changed in order to cancel the raise exception
+    
     try:
         return nx.find_negative_cycle(G, 0)
     except NetworkXNoCycle:
