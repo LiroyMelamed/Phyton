@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>האלגוריתמים שלנו</title>
+
+    <!-- Custom styles for this template -->
+    <link href="{{url_for('static', filename='/css/dashboard.rtl.css')}}" rel="stylesheet">
+  </head>
+  <body>
+
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="/">MELAMEDIA</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="عرض/إخفاء لوحة التنقل">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</header>
+
+<div class="row">
+  <div class="col-3">
+    <div class="container-fluid">
+      <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+          <div class="position-sticky pt-3 sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">
+                  <span data-feather="home" class="align-text-bottom"></span>
+                  חזרה לדף הבית
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  id="FirstAlgoBTN">
+                  <span data-feather="file" class="align-text-bottom"></span>
+                  אלגוריתם ראשון
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="SecondAlgoBTN">
+                  <span data-feather="file" class="align-text-bottom" ></span>
+                  אלגוריתם שני
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="Partners">
+                  <span data-feather="users" class="align-text-bottom"></span>
+                  השותפים שלנו
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  id="Explain">
+                  <span data-feather="layers" class="align-text-bottom"></span>
+                  הסברים
+                </a>
+              </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+              <span>העלאת קבצים</span>
+              <a class="link-secondary" aria-label="">
+                <span data-feather="plus-circle" class="align-text-bottom"></span>
+              </a>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" id="Example">
+                  <span data-feather="file-text" class="align-text-bottom"></span>
+                  קובץ דוגמא
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="ExampleAlgo1">
+                  <span data-feather="file-text" class="align-text-bottom"></span>
+                  אלגוריתם ראשון
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="ExampleAlgo2">
+                  <span data-feather="file-text" class="align-text-bottom"></span>
+                  אלגוריתם שני
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="container" id="Greeting" hidden>
+      <div class="FullPage d-flex align-items-center justify-content-center">
+        <h1>ברוך הבא לממשק האלגוריתמים שלנו</h1>
+      </div>
+
+    </div>
+    <div class="container" id="FirstAlgo" hidden>
+      <div class="row" style="padding-top: 50px">
+        <h1>
+          מציאת שידוך מקסימלי לפי עדיפויות
+        </h1>
+      </div>
+      <div class="row">
+        <h5>
+        באלגוריתם זה אנחנו מוצאים שידוך מקסימלי לפי עדיפויות
+        <br>
+        הקלט - גרף מכוון המכיל קודקודים שיש להם עדיפות מסויימת.
+        <br>
+        הפלט - שידוך מקסימלי של צלעות הגרף לפי העדיפויות כאשר 1 זה העדיפות הטובה ביותר.
+        </h5>
+      </div>
+      <br>
+      <div class="row">
+        <h1>
+          איך זה עובד?
+        </h1>
+        <h5>
+          ציון השידוך מורכב מכמות מספרים לפי מספר הקודקודים כלומר אם ישנם 4 קודקודים הציון יהיה מורכב מ4 ספרות כך שציון הקודקוד מופיע בדיוק במיקום שלו, 1 במקום הראשון 2 במקום השני וכן הלאה.
+          <br>
+        לכל גרף ישנו ציון מסויים שמתקבל על ידי הוספת +1 במקום שלו כאשר הקודקוד נוגע בצלע מהשידוך.
+        <br>
+        העדיפות הטובה ביותר היא 1 ולכן מתחילים מהקודקוד שבו העדיפות היא 1 ולאחר מכן נעבור לעדיפות 2 וכן הלאה ולפי כמה חוקים נוכל להגיע לשידוך שבו הציון שנקבל יהיה הטוב ביותר.
+        </h5>
+      </div>
+    </div>
+    <div class="container" id="SecondAlgo" hidden>
+      <div class="row" style="padding-top: 50px">
+        <h1>
+          מציאת שידוך מקסימלי לפי עדיפויות בגרף דו צדדי
+        </h1>
+      </div>
+      <div class="row">
+        <h5>
+         באלגוריתם זה אנחנו מוצאים שידוך מקסימלי לפי עדיפויות בגרף דוד צדדי
+        <br>
+        הקלט - גרף דו צדדי המכיל קודקודים שיש להם עדיפות מסויימת.
+        <br>
+        הפלט - שידוך מקסימלי של צלעות הגרף לפי העדיפויות כאשר 1 זה העדיפות הטובה ביותר.
+        </h5>
+      </div>
+      <br>
+      <div class="row">
+        <h1>
+          איך זה עובד?
+        </h1>
+        <h5>
+          ציון השידוך מורכב מכמות מספרים לפי מספר הקודקודים כלומר אם ישנם 4 קודקודים הציון יהיה מורכב מ4 ספרות כך שציון הקודקוד מופיע בדיוק במיקום שלו, 1 במקום הראשון 2 במקום השני וכן הלאה.
+          <br>
+        לכל גרף ישנו ציון מסויים שמתקבל על ידי הוספת +1 במקום שלו כאשר הקודקוד נוגע בצלע מהשידוך.
+        <br>
+        העדיפות הטובה ביותר היא 1 ולכן מתחילים מהקודקוד שבו העדיפות היא 1 ולאחר מכן נעבור לעדיפות 2 וכן הלאה ולפי כמה חוקים נוכל להגיע לשידוך שבו הציון שנקבל יהיה הטוב ביותר.
+        </h5>
+      </div>
+    </div>
+    <div class="container" id="Part" hidden >
+      <div class="row" style="padding-top: 50px">
+        <h1>
+          דף זה כולו מוקדש לשותפים שלנו לעבודה
+        </h1>
+      </div>
+      <div class="row">
+        <h5>
+          השותף הבכיר שלנו לעבודה הוא רועי משולם.
+        <br>
+        רועי הינו סטודנט למדעי המחשב בשנתו השלישית.
+        <br>
+        בנוסף, רועי נמצא בחברתנו מאז הקמתה ושותף לכל עבודותינו.
+        </h5>
+      </div>
+      <br>
+      <div class="row">
+        <h1>
+         למה בחרנו ברועי?
+        </h1>
+        <h5>
+         דבר ראשון נדהמנו לגלות את הרמה הגבוהה שבה רועי מתכנת, מתכנת במעל 40 שפות שונות ושולט בכולן ברמה גבוהה ביותר.
+          <br>
+       רועי מוסיף לחברתינו ידע רב ויצירתיות ותמיד חושב מחוץ לקופסא, תמיד מעיר הערות חשובות ועוזר לקידום החברה.
+        <br>
+        אין שום ספק שעשינו את הבחירה הנכונה בעבודה עם רועי, בחור משכמו ומעלה.
+        </h5>
+      </div>
+      <div class="row justify-content-center" style="padding-top: 10px">
+        <div class="col-1">
+          <a href="https://github.com/RoiMeshulam">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="container" id="Expl" hidden >
+      <div class="row" style="padding-top: 50px">
+        <h1>
+          אז איך מפעילים את האלגוריתם?
+        </h1>
+      </div>
+      <div class="row">
+        <h5>
+          אפשרות ראשונה - ללחוץ על אחד מקבצי הדוגמא שנמצאים מתחת להעלאת קבצים בסרגל הכלים.
+        <br>
+        אפשרות שנייה - להעלות קובץ TXT עם איתחול של גרף לפי ההסבר הנ"ל.
+        <br>
+        </h5>
+      </div>
+      <br>
+      <div class="row">
+        <h1>
+         איך מאתחלים את הגרף בקובץ TXT?
+        </h1>
+        <h5>
+          איתחול הגרף והפעולות עליו יתבצעו בסינטקס של networx, קישור לסיפרייה למטה.
+          <br>
+          כל שורה בקובץ הטקסט צריכה להירשם בנפרד, לדוג'- G = nx.Graph ושורה מתחת G.add_node(1).
+        <br>
+          לכל גרף צריך להגדיר קדימות בצורה הבאה - nx.set_node_attribute(G, {'1':{"priorty":1}).
+        <br>
+          בנוסף כל שורת סיום צריכה להיגמר ב - find_maximum_priority_matching(G).
+        </h5>
+      </div>
+      <div class="row justify-content-center" style="padding-top: 10px">
+          <div class="form-group" style="margin: 5px; padding-left: 10px">
+            <label for="exampleFormControlTextarea1">דוגמא לקובץ טקסט</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="direction: ltr">
+G = nx.Graph()
+nodes = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+edges = [('1', '2'), ('2', '3'), ('3', '4'),('3','6'), ('4', '5'), ('5', '7'), ('6', '7'), ('7', '11'), ('8', '9'), ('9', '10'),('10','11'),('10','12'),('11','12')]
+nodes_attrs = {'1': {"priority": 1},'2': {"priority": 2},'3': {"priority": 1},'4': {"priority": 1},'5': {"priority": 1},'6': {"priority": 1},'7': {"priority": 1},'8': {"priority": 1},'9': {"priority": 2},'10': {"priority": 1},'11': {"priority": 1},'12': {"priority": 1}}
+G.add_nodes_from(nodes)
+G.add_edges_from(edges)
+nx.set_node_attributes(G, nodes_attrs)
+find_maximum_priority_matching(G)
+            </textarea>
+          </div>
+      </div>
+    </div>
+    <div class="container" id="Algo1" hidden >
+      <div class="row" style="padding-top: 50px">
+        <h1>בקובץ זה קיבלנו גרף כזה</h1>
+        <hr>
+        <h5>הקודקודים הם: {{Examples1[0].nodes}}</h5>
+        <h5>הצלעות הן: {{Examples1[0].edges}}</h5>
+        <h5>הקדימויות הן: {{Examples1[3]}}</h5>
+        <hr>
+        <h1>לאחר הפעלת האלגוריתם</h1>
+        <h5>השידוך המקסימלי הוא: {{Examples1[1]}}</h5>
+        <h5>תוצאת השידוך היא: {{Examples1[2]}}</h5>
+        <h5>הגרף נראה כך לאחר הפעלת האלגוריתם:</h5>
+        <img src="{{url_for('static', filename=Examples1[4])}}">
+      </div>
+    </div>
+  </div>
+</div>
+      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="{{url_for('static', filename='/javascript/dashboard_algo1.js')}}"></script>
+  </body>
+</html>
+
+{% endblock %}

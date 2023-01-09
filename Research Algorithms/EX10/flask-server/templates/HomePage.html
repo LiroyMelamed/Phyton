@@ -1,0 +1,271 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!--Main Navigation-->
+<header>
+  <style>
+    /* Carousel styling */
+    #introCarousel,
+    .carousel-inner,
+    .carousel-item,
+    .carousel-item.active {
+            height: 100vh;
+    }
+
+    .carousel-item:nth-child(1) {
+      background-repeat: repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+
+    /* Height for devices larger than 576px */
+    @media (min-width: 992px) {
+      #introCarousel {
+        margin-top: -58.59px;
+      }
+    }
+
+    .navbar .nav-link {
+      color: black !important;
+    }
+  </style>
+
+  <!-- Navbar -->
+  <nav
+       class="navbar navbar-expand-lg navbar-dark d-none d-lg-block"
+       style="z-index: 2000"
+       >
+    <div class="container-fluid">
+      <!-- Navbar brand -->
+      <a
+         class="navbar-brand nav-link"
+         target="_blank"
+         href="https://www.facebook.com/MelaMedia1/"
+         >
+        <strong>MELAMEDIA</strong>
+      </a>
+      <button
+              class="navbar-toggler"
+              type="button"
+              data-mdb-toggle="collapse"
+              data-mdb-target="#navbarExample01"
+              aria-controls="navbarExample01"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              >
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarExample01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="/עבודות">Our Works</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="/אלגוריתם">Our Algorithms</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!-- Carousel wrapper -->
+  <div
+       id="introCarousel"
+       class="carousel slide carousel-fade shadow-2-strong"
+       data-mdb-ride="carousel"
+       >
+    <!-- Inner -->
+    <div class="carousel-inner">
+      <!-- Single item -->
+      <div class="carousel-item active">
+        <video
+               style="min-width: 100%; min-height: 100vh"
+               playsinline
+               autoplay
+               muted
+               loop
+               >
+          <source
+                  class="h-100"
+                  src="{{url_for('static', filename='v1.mp4')}}"
+                  type="video/mp4"
+                  />
+        </video>
+      </div>
+    </div>
+    <!-- Inner -->
+  </div>
+  <!-- Carousel wrapper -->
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main class="mt-5">
+  <div class="container" style="direction: rtl">
+    <!--Section: Content-->
+    <section>
+      <div class="row">
+        <div class="col-md-6 gx-5 mb-4">
+          <div
+               class="bg-image hover-overlay ripple shadow-2-strong"
+               data-mdb-ripple-color="light"
+               >
+            <img
+                 src="{{url_for('static', filename='Reusable-Napkins.png')}}"
+                 class="img-fluid"
+                 />
+            <a href="#!">
+              <div
+                   class="mask"
+                   style="background-color: rgba(251, 251, 251, 0.15)"
+                   ></div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 gx-5 mb-4">
+          <h4><strong>ברוך הבא למלמדיה</strong></h4>
+          <p class="text-muted">
+            החברה שלנו עוסקת בעיצוב גרפי, בניית אתרים ופיתוח אפליקציות.
+          </p>
+          <br>
+          <p><strong>למה לבחור בנו?</strong></p>
+          <p class="text-muted">
+            לחברתנו יש ניסיון רב במגוון תחומים.
+            <br>
+            מספר רב של המלצות ולקוחות ששמחו לעבוד איתנו.
+            <br>
+            זמני בנייה, פיתוח והעיצוב שלנו הם מהטובים בארץ.
+            <br>
+          </p>
+        </div>
+      </div>
+    </section>
+    <!--Section: Content-->
+
+    <hr class="my-5" />
+
+    <!--Section: Content-->
+    <section class="text-center">
+      <h4 class="mb-5"><strong>תחומי העבודה שלנו</strong></h4>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-12 mb-4">
+          <div class="card">
+            <div
+                 class="bg-image hover-overlay ripple"
+                 data-mdb-ripple-color="light"
+                 >
+              <img
+                   src="{{url_for('static', filename='1920Logo.png')}}"
+                   class="img-fluid"
+                   />
+              <a href="#!">
+                <div
+                     class="mask"
+                     style="background-color: rgba(251, 251, 251, 0.15)"
+                     ></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">עיצוב גרפי</h5>
+              <p class="card-text">
+                עיצוב ברמה הגבוהה ביותר, תוך שילוב והבנת הלקוח.
+                עיצוב מודרני וחדשני.
+              </p>
+              <a href="#!" class="btn btn-primary">למידע נוסף</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card">
+            <div
+                 class="bg-image hover-overlay ripple"
+                 data-mdb-ripple-color="light"
+                 >
+              <img
+                   src="{{url_for('static', filename='web.png')}}"
+                   class="img-fluid"
+                   />
+              <a href="#!">
+                <div
+                     class="mask"
+                     style="background-color: rgba(251, 251, 251, 0.15)"
+                     ></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">בניית אתרים</h5>
+              <p class="card-text">
+                בניית אתרים בשפות שונות תוך כדי שימוש בסיפריות רלוונטיות.
+                שילוב של BootStrap, Flask, React ועוד...
+              </p>
+              <a href="#!" class="btn btn-primary">למידע נוסף</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card">
+            <div
+                 class="bg-image hover-overlay ripple"
+                 data-mdb-ripple-color="light"
+                 >
+              <img
+                   src="{{url_for('static', filename='app.png')}}"
+                   class="img-fluid"
+                   />
+              <a href="#!">
+                <div
+                     class="mask"
+                     style="background-color: rgba(251, 251, 251, 0.15)"
+                     ></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">פיתוח אפליקציות</h5>
+              <p class="card-text">
+                פיתוח אפליקציות פונקציונליות.
+                אפשרויות חיבור לתשלומים חיצוניים ובניית מסדי נתונים.
+              </p>
+              <a href="#!" class="btn btn-primary">למידע נוסף</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Section: Content-->
+
+  </div>
+</main>
+<!--Main layout-->
+
+<!--Footer-->
+<footer class="bg-light text-lg-start">
+  <hr class="m-0" />
+  <div class="text-center py-4 align-items-center">
+    <p>Follow MELAMEDIA on social media</p>
+    <a href="https://github.com/LiroyMelamed">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+      </svg>
+    </a>
+    <a  href="https://www.facebook.com/MelaMedia1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    © 2023 Copyright: MELAMEDIA
+  </div>
+  <!-- Copyright -->
+</footer>
+<!--Footer-->
+
+{% endblock %}
