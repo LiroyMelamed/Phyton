@@ -23,6 +23,8 @@
 
   const Upload = document.getElementById('Upload')
 
+  const Start = document.getElementById('Start')
+
   const Exmple = document.getElementById('Example')
 
   const ExmpleAlgo1 = document.getElementById('ExampleAlgo1')
@@ -64,6 +66,31 @@
   })
 
   Upload.addEventListener("click", function(){
+    var myModal = new bootstrap.Modal(document.getElementById("exampleModal"), {});
+	myModal.show()
+    Start.addEventListener("click", function (){
+          const formData = new FormData();
+    const files = document.getElementById("formFile");
+    formData.append("file", files.files[0]);
+    const requestOptions = {
+        headers: {
+            "Content-Type": files.files[0].contentType,
+        },
+        mode: "no-cors",
+        method: "POST",
+        files: files.files[0],
+        body: formData,
+    };
+    console.log(requestOptions);
+
+    fetch("http://127.0.0.1:5000/אלגוריתם", requestOptions).then(
+        (response) => {
+            console.log(response.data);
+            myModal.hide()
+            window.location.href = 'http://127.0.0.1:5000/אלגוריתם_קובץ'
+        }
+    );
+    })
   })
 
   Exmple.addEventListener("click", function(){

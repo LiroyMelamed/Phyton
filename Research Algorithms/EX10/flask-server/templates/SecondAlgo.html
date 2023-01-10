@@ -19,6 +19,31 @@
   </button>
 </header>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">העלאת קבצים</h1>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="formFile" class="form-label">העלאת קובץ txt, תתבצע כאן ולאחר מכן תועברו לדף המתאים</label>
+              <input formmethod="post" class="form-control" type="file" id="formFile">
+            </div>
+            <div class="row" id="Error" hidden style="color: #9C1A1C">
+              ישנה בעיה עם הקובץ אנא נסה שוב
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">סגור</button>
+            <button type="button" class="btn btn-primary" id="Start">הפעל את האלגוריתם</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 <div class="row">
   <div class="col-3">
     <div class="container-fluid">
@@ -60,7 +85,7 @@
 
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
               <span>העלאת קבצים</span>
-              <a class="link-secondary" aria-label="">
+              <a class="link-secondary" aria-label="" id="Upload">
                 <span data-feather="plus-circle" class="align-text-bottom"></span>
               </a>
             </h6>
@@ -214,13 +239,14 @@
          איך מאתחלים את הגרף בקובץ TXT?
         </h1>
         <h5>
-          איתחול הגרף והפעולות עליו יתבצעו בסינטקס של networx, קישור לסיפרייה למטה.
+          איתחול הגרף והפעולות עליו יתבצעו בסינטקס של networx, קישור לסיפרייה בתמונה למטה.
           <br>
           כל שורה בקובץ הטקסט צריכה להירשם בנפרד, לדוג'- G = nx.Graph ושורה מתחת G.add_node(1).
         <br>
+          השורות יכתבו בצורה הבאה: שורה ראשונה - איתחול הגרף, שורה שנייה עד רביעית קודקודים צלעות והקדימויות, שורה חמישית ושישית - הוספת הקודקודים והצלעות לגרף ושורה שביעית - הוספת הקדימויות לגרף.
+        <br>
           לכל גרף צריך להגדיר קדימות בצורה הבאה - nx.set_node_attribute(G, {'1':{"priorty":1}).
         <br>
-          בנוסף כל שורת סיום צריכה להיגמר ב - find_maximum_priority_matching(G).
         </h5>
       </div>
       <div class="row justify-content-center" style="padding-top: 10px">
@@ -234,9 +260,13 @@ nodes_attrs = {'1': {"priority": 1},'2': {"priority": 2},'3': {"priority": 1},'4
 G.add_nodes_from(nodes)
 G.add_edges_from(edges)
 nx.set_node_attributes(G, nodes_attrs)
-find_maximum_priority_matching(G)
             </textarea>
           </div>
+      </div>
+      <div class="row justify-content-center" style="padding-top: 20px; text-align: center">
+        <a href="https://networkx.org/">
+          <img src="{{url_for('static', filename='networkx_banner.svg')}}">
+        </a>
       </div>
     </div>
     <div class="container" id="Algo2" hidden >
