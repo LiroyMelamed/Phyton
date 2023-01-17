@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'Base.html' %}
 
 {% block content %}
 <!--Main Navigation-->
@@ -9,7 +9,7 @@
     .carousel-inner,
     .carousel-item,
     .carousel-item.active {
-            height: 100vh;
+            width: 100%;
     }
 
     .carousel-item:nth-child(1) {
@@ -19,7 +19,7 @@
     }
 
     /* Height for devices larger than 576px */
-    @media (min-width: 992px) {
+    @media (min-width: 10px) {
       #introCarousel {
         margin-top: -58.59px;
       }
@@ -32,39 +32,16 @@
 
   <!-- Navbar -->
   <nav
-       class="navbar navbar-expand-lg navbar-dark d-none d-lg-block"
+       class="navbar navbar-expand-lg navbar-dark"
        style="z-index: 2000"
        >
     <div class="container-fluid">
       <!-- Navbar brand -->
-      <a
-         class="navbar-brand nav-link"
-         target="_blank"
-         href="https://www.facebook.com/MelaMedia1/"
-         >
-        <strong>MELAMEDIA</strong>
-      </a>
-      <button
-              class="navbar-toggler"
-              type="button"
-              data-mdb-toggle="collapse"
-              data-mdb-target="#navbarExample01"
-              aria-controls="navbarExample01"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-              >
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarExample01">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" aria-current="page" href="/עבודות">Our Works</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" aria-current="page" href="/אלגוריתם">Our Algorithms</a>
-          </li>
-        </ul>
-
+        <a class="nav-link" aria-current="page" href="/עבודות">Our Works</a>
+        <a class="navbar-brand nav-link" target="_blank" href="https://www.facebook.com/MelaMedia1/">
+            <strong>MELAMEDIA</strong>
+        </a>
+        <a class="nav-link" aria-current="page" href="/אלגוריתם">Our Algorithms</a>
       </div>
     </div>
   </nav>
@@ -81,14 +58,13 @@
       <!-- Single item -->
       <div class="carousel-item active">
         <video
-               style="min-width: 100%; min-height: 100vh"
+               style="min-width: 100%; min-height: 100%;"
                playsinline
                autoplay
                muted
                loop
                >
           <source
-                  class="h-100"
                   src="{{url_for('static', filename='v1.mp4')}}"
                   type="video/mp4"
                   />

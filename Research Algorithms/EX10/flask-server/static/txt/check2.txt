@@ -1,0 +1,7 @@
+G = nx.Graph()
+nodes = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+edges = [('1', '2'), ('2', '3'), ('3', '4'), ('4', '5'), ('5', '6'), ('6', '7'), ('7', '8'), ('7', '9'),('7', '3')]
+nodes_attrs = {'1': {"priority": 1}, '2': {"priority": 8}, '3': {"priority": 6}, '4': {"priority": 5},'5': {"priority": 2}, '6': {"priority": 4}, '7': {"priority": 3}, '8': {"priority": 1},'9': {"priority": 7}}
+G.add_nodes_from(nodes)
+G.add_edges_from(edges)
+nx.set_node_attributes(G, nodes_attrs)

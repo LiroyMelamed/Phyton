@@ -2,5 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/EX6/networkx" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/EX8/MelaMedia" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/EX8/networkx" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/EX8/venv" vcs="Git" />
   </component>
 </project>

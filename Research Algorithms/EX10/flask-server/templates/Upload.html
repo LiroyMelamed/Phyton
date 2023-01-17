@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'Base.html' %}
 
 {% block content %}
 <html lang="en" dir="rtl">
@@ -286,6 +286,8 @@ nx.set_node_attributes(G, nodes_attrs)
               <h5>השידוך המקסימלי הוא: {{Examples[1]}}</h5>
               <h5>תוצאת השידוך היא: {{Examples[2]}}</h5>
               <h5>הגרף נראה כך לאחר הפעלת האלגוריתם:</h5>
+              <img src="{{url_for('static', filename=Examples[4])}}">
+
             </div>
           </form>
         </div>
